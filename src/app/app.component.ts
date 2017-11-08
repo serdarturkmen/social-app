@@ -18,19 +18,13 @@ export class AppComponent {
     console.log('Initializing Facebook');
 
     fb.init({
-      appId: '1927971220769787',
+      appId: '189794741588452',
       version: 'v2.9'
     });
 
   }
 
-  login() {
-    this.fb.login()
-      .then((res: LoginResponse) => {
-        console.log('Logged in', res);
-      })
-      .catch(this.handleError);
-  }
+
 
   /**
    * Login with additional permissions/options
@@ -51,37 +45,6 @@ export class AppComponent {
 
   }
 
-  getLoginStatus() {
-    this.fb.getLoginStatus()
-      .then(console.log.bind(console))
-      .catch(console.error.bind(console));
-  }
-
-
-  /**
-   * Get the user's profile
-   */
-  getProfile() {
-    this.fb.api('/me')
-      .then((res: any) => {
-        console.log('Got the users profile', res);
-      })
-      .catch(this.handleError);
-  }
-
-
-  /**
-   * Get the users friends
-   */
-  getFriends() {
-    this.fb.api('/me/friends')
-      .then((res: any) => {
-        console.log('Got the users friends', res);
-      })
-      .catch(this.handleError);
-  }
-
-
   /**
    * Show the share dialog
    */
@@ -99,22 +62,7 @@ export class AppComponent {
       .catch(this.handleError);
 
   }
-
-
-  playVideo() {
-    this.video.play();
-  }
-
-  onVideoEvent(ev) {
-    console.log('Video event fired: ' + ev);
-  }
-
-  pauseVideo() {
-    this.video.pause();
-  }
-
-
-
+  
   /**
    * This is a convenience method for the sake of this example project.
    * Do not use this in production, it's better to handle errors separately.
